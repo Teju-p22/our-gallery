@@ -15,6 +15,7 @@
             min-height: 100vh;
             margin: 0;
             overflow-x: hidden;
+            position: relative;
         }
 
         h1 {
@@ -41,6 +42,7 @@
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s, transform 0.2s;
+            margin-bottom: 20px;
         }
 
         .enter-btn:hover {
@@ -69,6 +71,20 @@
             from { transform: rotate(0deg) translateX(300px) rotate(0deg); }
             to { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
         }
+
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 30px;
+            animation: float 6s infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.8; }
+            50% { transform: translateY(-100px); opacity: 1; }
+            100% { transform: translateY(-200px); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -80,11 +96,11 @@
     </div>
 
     <div class="gallery" id="gallery">
-        <img src="https://via.placeholder.com/200" alt="Photo 1">
-        <img src="https://via.placeholder.com/200" alt="Photo 2">
-        <img src="https://via.placeholder.com/200" alt="Photo 3">
-        <img src="https://via.placeholder.com/200" alt="Photo 4">
-        <img src="https://via.placeholder.com/200" alt="Photo 5">
+        <img src="images/photo1.jpg" alt="Photo 1">
+        <img src="images/photo2.jpg" alt="Photo 2">
+        <img src="images/photo3.jpg" alt="Photo 3">
+        <img src="images/photo4.jpg" alt="Photo 4">
+        <img src="images/photo5.jpg" alt="Photo 5">
     </div>
 
     <script>
@@ -92,6 +108,23 @@
             document.querySelector(".welcome-section").style.display = "none";
             document.getElementById("gallery").style.display = "block";
         }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = window.innerHeight + "px";
+            heart.style.fontSize = Math.random() * 20 + 20 + "px";
+            heart.style.animationDuration = Math.random() * 5 + 3 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 1000);
     </script>
 
 </body>
