@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story 💖</title>
+    <style>
+        body {
+            background-color: #add8e6;
+            font-family: 'Cursive', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #ffb6c1;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .enter-btn {
+            padding: 12px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .enter-btn:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+
+        .gallery {
+            display: none;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .gallery img {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg) translateX(300px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-section">
+        <h1>Welcome to Our Gallery</h1>
+        <h2>Every moment with you is a treasure worth keeping.</h2>
+        <button class="enter-btn" onclick="showGallery()">Enter Our Love Story ✨</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+        <img src="https://via.placeholder.com/200" alt="Photo 1">
+        <img src="https://via.placeholder.com/200" alt="Photo 2">
+        <img src="https://via.placeholder.com/200" alt="Photo 3">
+        <img src="https://via.placeholder.com/200" alt="Photo 4">
+        <img src="https://via.placeholder.com/200" alt="Photo 5">
+    </div>
+
+    <script>
+        function showGallery() {
+            document.querySelector(".welcome-section").style.display = "none";
+            document.getElementById("gallery").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
